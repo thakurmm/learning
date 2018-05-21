@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>classes</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	    <ul>
+            <li>IDs must be unique in the HTML (DOM) Document.
+            <li>This makes it possible for element selection very specifically, 
+                but makes it cumbersome to make same change to multiple elements.
+            <li>You can assign only ONE id to any element.
+	    </ul>
+	    <p class="text1">Base Text 1.</p>
+	    <p class="text1 text2">Base Text 1 and 2.</p>
+	    <p class="text2">Base Text 2.</p>
+	    <pre>
+	        Interesting. With multiple class definitions, the variations of the following js code snippets is different
+	        1. $('.text1').html($('.text1').html() + ' <b>Added in javascript</b>');
+	            Replaces ALL .text1 classes with Base code from first .text1
+	        2. $('.text1').html($('.text2').html() + ' <b>Added in javascript</b>');
+	            Replaces ALL .text1 classes with Base code from first .text2
+	    </pre>
+	    
+	    So, this means while multiple classes for an element is useful, it can cause some side effects as you can
+	    only retrieve the first class element information (unless I find otherwise later).
+	    
+	</body>
+	<script type="text/javascript">
+	    // This function is executed AFTER the HML (DOM) document is loaded
+	    // This means, when we enter this function, all HTML elements are available
+		$(document).ready(function() {
+		        // Your code goes here
+		        $('.text1').html($('.text2').html() + ' <b>Added in javascript</b>');
+		});
+	</script>
+</html>

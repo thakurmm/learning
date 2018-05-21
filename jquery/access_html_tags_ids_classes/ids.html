@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>ids</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	    <ul>
+            <li>IDs must be unique in the HTML (DOM) Document.
+            <li>This makes it possible for element selection very specifically, 
+                but makes it cumbersome to make same change to multiple elements.
+            <li>You can assign only ONE id to any element.
+	    </ul>
+	    <p id="text1">Base Text 1.</p>
+	    <p id="text2">Base Text 2.</p>
+	</body>
+	<script type="text/javascript">
+	    // This function is executed AFTER the HML (DOM) document is loaded
+	    // This means, when we enter this function, all HTML elements are available
+		$(document).ready(function() {
+		        // Your code goes here
+		        var text1_Content = $('#text1').html();
+		        text1_Content += ' <b>Added in javascript</b>';
+		        $('#text1').html(text1_Content);
+		});
+	</script>
+</html>

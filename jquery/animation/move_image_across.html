@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>move_image_across</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+        <img src="" id="image1" style="position:absolute; top:50px">
+	    <input id="move_button" type="button" value="Move Image" class="btn btn-primary">
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		        // Your code goes here
+		        $('#image1').attr('src','../images/mohit.jpg');
+		        $('#move_button').click( function() {
+		            $('#image1').animate(
+		                {'left':'+=500'}, 
+		                {   duration:2000, 
+		                    complete:function() {
+		                        $('#image1').animate(
+		                            {'left':'-=500'},
+		                            {duration:2000}
+                                );
+		                    }
+                        }
+                    );
+		        });
+		});
+	</script>
+</html>

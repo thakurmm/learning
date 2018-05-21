@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>switch_image_on_mouse_events</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	    <img id="image1" src="">
+	    <br/>
+	    <img class="image2" src="">
+	    <img class="image2" src="">
+	    <br/>
+	    <img class="image3" src="">
+	    <br/>
+	    <img class="image4" src="">
+	</body>
+	<script type="text/javascript">
+	    // This function is executed AFTER the HML (DOM) document is loaded
+	    // This means, when we enter this function, all HTML elements are available
+		$(document).ready(function() {
+		        // Your code goes here
+		        var flipped = false;
+		        
+		        // One image using 'id'
+		        $('#image1').attr('src','../images/ronak.jpg');
+		        $('#image1').mouseover( function() {
+		                $('#image1').attr('src','../images/mohit.jpg');
+		        });
+		        $('#image1').mouseout( function() {
+		                $('#image1').attr('src','../images/ronak.jpg');
+		        });
+		        
+		        // Multiple images using class
+		        $('.image2').attr('src','../images/ronak.jpg');
+		        $('.image2').mouseover( function() {
+		                $('.image2').attr('src','../images/mohit.jpg');
+		        });
+		        $('.image2').mouseout( function() {
+		                $('.image2').attr('src','../images/ronak.jpg');
+		        });		        
+
+		        // On click
+		        $('.image3').attr('src','../images/ronak.jpg');
+		        $('.image3').click( function() {
+		                if (!flipped) {
+                            $('.image3').hide();
+                            $('.image3').attr('src','../images/mohit.jpg');
+                            $('.image3').show('slow');
+                            flipped = true;
+		                } else {
+                            $('.image3').hide();
+                            $('.image3').attr('src','../images/ronak.jpg');
+                            $('.image3').show('slow');
+                            flipped = false;
+		                }
+		        });
+		});
+	</script>
+</html>

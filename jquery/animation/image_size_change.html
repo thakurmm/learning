@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>image_size_change</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	    <div id="image_div" style="height:25%; width:25%">
+	        <img id="image1" src="../images/mohit.jpg" style="height:25%; width:25%">
+	    </div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function() {
+            // Your code goes here
+            var switch_image=true;
+            
+            $('#image1').hover(function() {
+                $('#image1').animate( {'height':'100%', 'width':'100%'}, { duration: 1000, complete: function() {
+                    $('#image1').animate( {'height':'25%', 'width':'25%'}, { duration: 1000, complete: function() {
+                        if (switch_image) {
+                            $('#image1').attr('src',"../images/ronak.jpg");
+                            switch_image = false;
+                        } else {
+                            $('#image1').attr('src',"../images/mohit.jpg");
+                            switch_image = true;
+                        };
+                    }});
+                }});
+            });
+		});
+	</script>
+</html>

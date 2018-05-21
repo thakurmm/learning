@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>html_tags</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	    <ul>
+            <li>HTML tag selection will select ALL tags in the HTML (DOM) Document.
+            <li>Thus it is useful for global changes, but not so much for granular changes.
+	    </ul>
+	    <p>Base Text.</p>
+	    <p>Base Text.</p>
+	</body>
+	<script type="text/javascript">
+	    // This function is executed AFTER the HML (DOM) document is loaded
+	    // This means, when we enter this function, all HTML elements are available
+		$(document).ready(function() {
+		        // Your code goes here
+		        var pContent = $('p').html();
+		        pContent += ' <b>Added in javascript</b>';
+		        $('p').html(pContent);
+		});
+	</script>
+</html>

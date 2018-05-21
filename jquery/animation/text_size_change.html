@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>text_size_change</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	    <div id="text_size" style="font-size:35px">Changing Text</div>
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		        // Your code goes here
+		        $('#text_size').hover(function() {
+                    $('#text_size').animate( {fontSize: "75px"}, 1000).promise().done( function() {
+                            $('#text_size').animate( {fontSize: "35px"}, 1000);
+                    });
+                });
+		});
+	</script>
+</html>
