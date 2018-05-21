@@ -2,6 +2,12 @@ from tkinter import *
 from tkinter.ttk import *
 from tkinter import scrolledtext
 from tkinter import messagebox
+from tkinter import filedialog
+from tkinter import Menu
+
+from os import path
+
+# https://likegeeks.com/python-gui-examples-tkinter-tutorial/
 
 window = Tk()
 window.geometry('750x300')
@@ -69,12 +75,31 @@ def clicked03():
         # Needs import messagebox above
         messagebox.showerror('Message Box Title','Message Box Content - Error')
 
+    progress.step(10)
     YesNoTrueFalse = messagebox.askquestion('Message Box Title','Message Box Content - askquestion')
+    progress.step(10)
     YesNoTrueFalse = messagebox.askyesno('Message Box Title','Message Box Content - askyesno')
+    progress.step(10)
     OkCancelTrueFalse = messagebox.askokcancel('Message Box Title','Message Box Content - askokcancel')
+    progress.step(10)
     RetryCancelTrueFalse = messagebox.askretrycancel('Message Box Title','Message Box Content - askretrycancel')
+    progress.step(10)
 
     YesNoCancelTrueFalseNone = messagebox.askyesnocancel('Message Box Title','Message Box Content - askyesnocancel')
+    progress.step(10)
+
+def clicked04():
+    # needs import filedialog above
+    file = filedialog.askopenfilename()
+
+    files = filedialog.askopenfilenames()
+
+    file = filedialog.askopenfilename(filetypes = ( ("Text Files","*.txt"), ("CSV Files","*.csv"), ("All Files", "*.*")) )
+
+    dir = filedialog.askdirectory()
+
+    # Needs from os import path
+    dir = filedialog.askdirectory(initialdir = path.dirname(__file__))
 
 
 window.title("Hello Tk")
@@ -132,5 +157,22 @@ progress = Progressbar(window, length=250)
 progress['value'] = 40
 progress.grid(column=0, row=10)
 
+btn = Button(window, text="Test filedialog", command=clicked04)
+btn.grid(column=1, row=6)
+
+
+# Needs from tkinter import Menu
+menu = Menu(window)
+menu_item = Menu(menu)
+menu_item.add_command(label="One01", command=clicked01)
+menu_item.add_command(label="One02", command=clicked02)
+menu.add_cascade(label="One", menu=menu_item)
+
+menu_item2 = Menu(menu, tearoff=0)
+menu_item2.add_command(label="Two01", command=clicked03)
+menu_item2.add_command(label="Two02", command=clicked04)
+menu.add_cascade(label="Two", menu=menu_item2)
+
+window.config(menu=menu)
 
 window.mainloop()
